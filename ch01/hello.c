@@ -136,23 +136,32 @@
 // }
 
 // NOTE: functions
-#include <stdio.h>
+// #include <stdio.h>
+//
+// int power(int m, int n);
+//
+// int main(void) {
+//   int i;
+//
+//   for (i = 0; i < 10; ++i)
+//     printf("%d %d %d\n", i, power(2, i), power(-3, i));
+//   return 0;
+// }
+//
+// int power(int base, int n) {
+//   int i, p;
+//
+//   p = 1;
+//   for (i = 1; i <= n; ++i)
+//     p = p * base;
+//   return p;
+// }
 
-int power(int m, int n);
-
-int main(void) {
-  int i;
-
-  for (i = 0; i < 10; ++i)
-    printf("%d %d %d\n", i, power(2, i), power(-3, i));
-  return 0;
-}
-
+// NOTE: Arguments
 int power(int base, int n) {
-  int i, p;
+  int p;
 
-  p = 1;
-  for (i = 1; i <= n; ++i)
+  for (p = 0; n > 0; --n)
     p = p * base;
   return p;
 }
