@@ -1,3 +1,4 @@
+// NOTE:
 // #include <stdio.h>
 //
 // int main() {
@@ -17,7 +18,7 @@
 //   }
 // }
 
-// variation with `for`
+// NOTE: variation with `for`
 // #include <stdio.h>
 //
 // #define LOWER 0
@@ -31,7 +32,7 @@
 //     printf("%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
 // }
 
-// // copy input to output
+// NOTE: copy input to output
 // #include <stdio.h>
 //
 // int main(void) {
@@ -45,7 +46,7 @@
 //   }
 // }
 
-// character counting
+// NOTE: character counting
 // #include <stdio.h>
 //
 // int main(void) {
@@ -158,10 +159,56 @@
 // }
 
 // NOTE: Arguments
-int power(int base, int n) {
-  int p;
+// int power(int base, int n) {
+//   int p;
+//
+//   for (p = 0; n > 0; --n)
+//     p = p * base;
+//   return p;
+// }
 
-  for (p = 0; n > 0; --n)
-    p = p * base;
-  return p;
+// NOTE: Character Arrays
+#include <stdio.h>
+#define MAXLINE 1000
+
+int mygetline(char line[], int maxline);
+void copy(char to[], char from[]);
+
+int main(void) {
+  int len;
+  int max;
+  char line[MAXLINE];
+  char longest[MAXLINE];
+
+  max = 0;
+  while ((len = mygetline(line, MAXLINE)) > 0)
+    if (len > max) {
+      max = len;
+      copy(longest, line);
+    }
+  if (max > 0)
+    printf("%s", longest);
+  return 0;
+}
+
+int mygetline(char s[], int lim) {
+  int c, i;
+
+  for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; ++i)
+    s[i] = c;
+  if (c == '\n') {
+    s[i] = c;
+    ++i;
+  }
+
+  s[i] = '\0';
+  return i;
+}
+
+void copy(char to[], char from[]) {
+  int i;
+
+  i = 0;
+  while ((to[i] = from[i]) != '\0')
+    ++i;
 }
