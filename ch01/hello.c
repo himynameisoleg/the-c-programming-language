@@ -46,18 +46,40 @@
 // }
 
 // character counting
+// #include <stdio.h>
+//
+// int main(void) {
+//   // long nc;
+//   //
+//   // nc = 0;
+//   // while (getchar() != EOF)
+//   //   ++nc;
+//   // printf("%ld\n", nc);
+//
+//   double nc;
+//   for (nc = 0; getchar() != EOF; ++nc)
+//     ;
+//   printf("%.0f\n", nc);
+// }
+
+// line counting
 #include <stdio.h>
 
 int main(void) {
-  // long nc;
-  //
-  // nc = 0;
-  // while (getchar() != EOF)
-  //   ++nc;
-  // printf("%ld\n", nc);
+  int c, nl, tab, blank;
 
-  double nc;
-  for (nc = 0; getchar() != EOF; ++nc)
-    ;
-  printf("%.0f\n", nc);
+  nl = 0;
+  tab = 0;
+  blank = 0;
+  while ((c = getchar()) != EOF) {
+    if (c == '\n')
+      ++nl;
+    if (c == '\t')
+      ++tab;
+    if (c == ' ')
+      ++blank;
+  }
+  printf("New lines: %d\n", nl);
+  printf("Tabs: %d\n", tab);
+  printf("Blank: %d\n", blank);
 }
