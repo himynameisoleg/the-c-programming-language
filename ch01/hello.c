@@ -31,13 +31,33 @@
 //     printf("%3d %6.1f\n", fahr, (5.0 / 9.0) * (fahr - 32));
 // }
 
-// copy input to output
+// // copy input to output
+// #include <stdio.h>
+//
+// int main(void) {
+//   int c;
+//
+//   printf("EOF is: %d\n", EOF);
+//
+//   while ((c = getchar()) != EOF) {
+//     printf("expression was: %b\n", (getchar() != EOF));
+//     putchar(c);
+//   }
+// }
+
+// character counting
 #include <stdio.h>
 
 int main(void) {
-  int c;
+  // long nc;
+  //
+  // nc = 0;
+  // while (getchar() != EOF)
+  //   ++nc;
+  // printf("%ld\n", nc);
 
-  while ((c = getchar()) != EOF) {
-    putchar(c);
-  }
+  double nc;
+  for (nc = 0; getchar() != EOF; ++nc)
+    ;
+  printf("%.0f\n", nc);
 }
