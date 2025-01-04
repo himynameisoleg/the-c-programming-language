@@ -2,18 +2,32 @@
 #include <limits.h>
 #include <stdio.h>
 
+int bitcount(unsigned x);
+
 int main(void) {
-  printf("%d\n", CHAR_MIN);
-  printf("%d\n", CHAR_MAX);
+  // printf("%d\n", CHAR_MIN);
+  // printf("%d\n", CHAR_MAX);
+  //
+  // printf("%d\n", SHRT_MIN);
+  // printf("%d\n", SHRT_MAX);
+  //
+  // printf("%d\n", INT_MAX);
+  // printf("%d\n", INT_MIN);
+  //
+  // printf("%ld\n", LONG_MAX);
+  // printf("%ld\n", LONG_MAX);
 
-  printf("%d\n", SHRT_MIN);
-  printf("%d\n", SHRT_MAX);
+  printf("%d", bitcount(7));
 
-  printf("%d\n", INT_MAX);
-  printf("%d\n", INT_MIN);
+  return 0;
+}
 
-  printf("%ld\n", LONG_MAX);
-  printf("%ld\n", LONG_MAX);
+// NOTE: bi
+int bitcount(unsigned x) {
+  int b;
 
-  return 1;
+  for (b = 0; x != 0; x >>= 1)
+    if (x & 01)
+      b++;
+  return b;
 }
