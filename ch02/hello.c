@@ -22,7 +22,6 @@ int main(void) {
   return 0;
 }
 
-// NOTE: bi
 int bitcount(unsigned x) {
   int b;
 
